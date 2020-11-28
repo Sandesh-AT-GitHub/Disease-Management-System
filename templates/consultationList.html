@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+{% for eachDoctor in doctorList %}
+<div>
+     <p>name:{{eachDoctor.name}}</p>
+     <p>email:{{eachDoctor.email}}</p>
+     <p>degree:{{eachDoctor.degree}}</p>
+     <p>experience:{{eachDoctor.exp}}</p>
+     <p>profession:{{eachDoctor.currentstatus}}</p>
+     <p>specialisation:{{eachDoctor.specialisation}}</p>
+     <a href="{{url_for('consult',doctor=eachDoctor.name)}}">consult</a>
+</div>   
+<hr>
+{%endfor%}
+{% endblock %}

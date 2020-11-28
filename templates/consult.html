@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action='/users/usersHealthRecord' method='POST'>
+    <input type="text" name="from" value="{{user}}" readonly required>
+    <input type="text" name="to" value="{{doctor}}" readonly required>
+    <input type="text" name="symptom" required>
+    <input type="text" name='disease' required>
+    <input type="submit">
+</form>
+
+{% endblock %}

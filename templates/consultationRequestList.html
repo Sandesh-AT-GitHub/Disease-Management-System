@@ -1,0 +1,14 @@
+{% extends "doctorBase.html" %}
+{% block title %}DMS|ConsultationRequestList{% endblock %}
+{% block content %}
+{% for eachRow in query %}
+    <div>
+         <p>{{eachRow.hid}}</p>
+         <p>{{eachRow.diseases}}</p>
+         <p>{{eachRow.symptoms}}</p>
+         <p>{{eachRow.consultationdate}}</p>
+         <a href="{{url_for('writePrescription',hid=eachRow.hid)}}">reply with prescription</a>
+    </div>
+    <hr>
+{% endfor %}
+{% endblock %}

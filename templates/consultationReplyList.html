@@ -1,0 +1,15 @@
+{% extends "doctorBase.html" %}
+{% block content %}
+{% for eachRow in query %}
+   <div>
+        <h4>uid:{{eachRow.uid}}</h4>
+        <p>consultationdate:{{eachRow.consultationdate}}</p>
+        <p>consultateddate:{{eachRow.consultateddate}}</p>
+        <p>symptoms:{{eachRow.symptoms}}</p>
+        <p>diseases:{{eachRow.diseases}}</p>
+        <p>prescription:{{eachRow.prescription}}</p>
+        <p>status:{{eachRow.consultationstatus}}</p>
+   </div>
+   <hr>
+{% endfor %}
+{% endblock %}

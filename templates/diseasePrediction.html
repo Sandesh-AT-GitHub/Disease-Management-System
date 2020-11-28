@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="/users/diseaseList" method="POST">
+   <label>SYMPTOMS</label>
+   <input type="text" name="symptoms" placeholder="symptoms" required>
+   <br>
+   <label>MALE</label>
+   <input type="radio" name="gender" value="male" required>
+   <label>FEMALE</label>
+   <input type="radio" name="gender" value="female" required>
+   <br>
+   <label>year of birth</label>
+   <input type="number" name="age" placeholder="age" required>
+   <br>
+   <input type="submit">
+</form>
+{% endblock %}

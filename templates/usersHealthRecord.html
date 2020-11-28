@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">HealthID</th>
+            <th scope="col">DoctorID</th>
+            <th scope="col">symptoms</th>
+            <th scope="col">diseases</th>
+            <th scope="col">applied on</th>
+            <th scope="col">replied on</th>
+            <th scope="col">prescription</th>
+            <th scope="col">consultation status</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for eachRow in query %}
+        <tr>
+            <td>{{eachRow.hid}}</td>
+            <td>{{eachRow.did}}</td>
+            <td>{{eachRow.symptoms}}</td>
+            <td>{{eachRow.diseases}}</td>
+            <td>{{eachRow.consultationdate}}</td>
+            <td>{{eachRow.consultateddate}}</td>
+            <td>{{eachRow.prescription}}</td>
+            <td>{{eachRow.consultationstatus}}</td>
+            <td><a href="#">delete</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}

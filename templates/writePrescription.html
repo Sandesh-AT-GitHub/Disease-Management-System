@@ -1,0 +1,12 @@
+
+{% block title %} {% endblock %}
+{% block content %}
+    <a href="{{url_for('patientHealthRecord',uid=query.uid)}}">view details</a>
+    <form action="/doctor/consultationReplyList" method="POST"> 
+        hid<input type="number" name="hid" value="{{hid}}" readonly required>
+        from<input type="text" value="{{doctor}}" required>
+        to<input type="text" value="{{user}}" required>
+        prescription<input  type="text" name="prescription" required>
+        <input type="submit">
+    </form>
+{% endblock %}

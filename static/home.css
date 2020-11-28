@@ -1,0 +1,59 @@
+#backgroundimg{
+  width: 100%;
+}
+
+#system{
+  color: #43d08c;
+}
+.img-wrapper {
+  position: relative;
+  width: 100%;
+ }
+
+.img-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.img-overlay:before {
+  content: ' ';
+  display: block;
+  height: 33%;
+}
+
+.ConsultNow{
+  margin-top: 15%;
+  margin-bottom: 1.5rem;
+background-color: #43d08c !important;
+}
+
+#categories{
+  margin-top: 2.5rem;
+}
+
+.carousel-item{
+  padding: 7% 15%;
+}
+#testimonials{
+text-align: center;
+background-color:#FFF2D9;
+color: black;
+}
+#footer{
+  background-color: black;
+  text-align: center;
+  padding: 30px 30px 5px 30px ;
+  margin-top: 10px;
+  color: white;
+}
+.cattext{
+text-align: center;
+}
+.catimg{
+text-align: center;
+padding-bottom: 2rem;
+}

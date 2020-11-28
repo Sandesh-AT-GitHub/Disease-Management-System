@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% for i in range(listLen) %}
+     <h5>Disease {{i+1}}: </h5><h6>{{disease[i]["Name"]}}</h6>
+     <br>
+     <h6></p>accuracy of prediction:{{disease[i]["Accuracy"]}}%</h6>
+     <br>
+     <h5>type of consultation :</h5>
+      {% for medication in medications[i] %}
+        <h6>{{medication["Name"]}}</h6>
+      {% endfor %}
+<hr>
+{% endfor %}  
+<a href="{{url_for('consultationList')}}">consult</a>
+
+{% endblock %}

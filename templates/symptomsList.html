@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %} 
+<table class="table">
+     <thead>
+       <tr>
+         <th scope="col">ID</th>
+         <th scope="col">Symptom name</th>
+       </tr>
+     </thead>
+     <tbody>
+{% for symptom in symptoms%}
+<tr>
+     <td>{{symptom["ID"]}}</td>
+     <td>{{symptom["Name"]}}</td>
+</tr>
+{% endfor %} 
+     </tbody>
+     </table>
+{% endblock %}
+
+
+  
+   
+ 

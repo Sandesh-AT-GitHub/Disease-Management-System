@@ -1,0 +1,28 @@
+{% extends "doctorBase.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">HealthID</th>
+            <th scope="col">PatientID</th>
+            <th scope="col">symptoms</th>
+            <th scope="col">diseases</th>
+            <th scope="col">prescription</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for eachRow in query %}
+        <tr>
+            <td>{{eachRow.hid}}</td>
+            <td>{{eachRow.uid}}</td>
+            <td>{{eachRow.symptoms}}</td>
+            <td>{{eachRow.diseases}}</td>
+            <td>{{eachRow.prescription}}</td>
+            <td><a href="#">delete</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}

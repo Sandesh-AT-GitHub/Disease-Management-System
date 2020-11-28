@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Disease Management System</title>
+  <link rel="stylesheet" href="{{url_for('static',filename='home.css')}}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/x-icon/png" href="images/ba.png" />
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+   <!-- <a class="navbar-brand" href="#">--><span id="system"> Disease Management System</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('patientLogin')}}">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('patientSignup')}}">SignUp</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="cntct.php">Contact us</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="img-wrapper">
+    <img id="backgroundimg" class="img-responsive" src="{{url_for('static',filename='images/virus2.jpeg')}}" width="100%" alt="">
+  </div>
+
+  <section id="categories">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12 catimg">
+        <img src="{{url_for('static',filename='images/child.jpg')}}" class="img-fluid img-thumbnail"width="200" alt="">
+        <h3 class="cattext">Child specialists</h3>
+        
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-12 catimg ">
+        <img src="{{url_for('static',filename='images/bone.jpg')}}" class="img-fluid img-thumbnail"width="190" alt="">
+        <h3 class="cattext">Bone Specialists</h3>
+
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12  catimg">
+      <img src="{{url_for('static',filename='images/ear.jpg')}}" class="img-fluid img-thumbnail" width="190" alt="">
+        <h3 class="cattext">Ear Specialists</h3>
+
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12  catimg">
+        <img src="{{url_for('static',filename='images/eye.jpg')}}" class="img-fluid img-thumbnail" width="200" alt="">
+        <h3 class="cattext">Eye Specialists</h3>
+
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12  catimg">
+        <img src="{{url_for('static',filename='images/neuro.jpg')}}" class="img-fluid img-thumbnail" width="200" alt="">
+        <h3 class="cattext">Neurology Specialists</h3>
+
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12  catimg">
+        <img src="{{url_for('static',filename='images/skin.jpg')}}" class="img-fluid img-thumbnail" width="220" alt="">
+        <h3 class="cattext">Skin Specialists</h3>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- <section id="testimonials">
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+
+            <h2>Very good Consultancy!</h2>
+
+            <em>Abhiram, Bengaluru</em>
+
+          </div>
+          <div class="carousel-item">
+            <h2 class="testimonial-text">Very Skilled Doctors!</h2>
+            <em>Chetan, Puttur</em>
+          </div>
+          <div class="carousel-item">
+            <h2 class="testimonial-text">Good Suggestions.</h2>
+            <em>Ramesh, Mangaluru</em>
+          </div>
+          <div class="carousel-item">
+            <h2 class="testimonial-text">Easy Consultancy.</h2>
+            <em>Susanta Sahoo, Mysore</em>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </section> -->
+    <footer id="footer">
+      <p>© Copyright 2020 DMS</p>
+      <p>Developed by <span id="system">Shashank K & Sandesh KS</span></p>
+
+    </footer>
+
+
+</body>
+
+</html>
