@@ -11,9 +11,26 @@ app.secret_key="sandesh"
 #authorization
 
 import hmac, hashlib
+from hmac import HMAC
 import base64
 import json
-
+   
+# array = bytes('a6B2MyEw9r4H3LqFf,https://sandbox-authservice.priaid.ch/login', 'UTF-8')
+    
+# digester = hmac.new(, array, hashlib.sha1)
+# signature1 = digester.hexdigest()
+# # signature1 = digester.digest()
+# print(signature1)
+    
+    #signature2 = base64.urlsafe_b64encode(bytes(signature1, 'UTF-8'))
+#     signature2 = base64.urlsafe_b64encode(signature1)    
+#     #print(signature2)
+    
+#     return str(signature2, 'UTF-8')
+  
+    
+# result = make_digest('message', 'private-key')
+# print(result)
 token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNhbmRlc2hnb3dkYTEzNUBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL3NpZCI6IjgxNDMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIyMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiOTk5OTk5OTk5IiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiUHJlbWl1bSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjAtMTEtMTYiLCJpc3MiOiJodHRwczovL3NhbmRib3gtYXV0aHNlcnZpY2UucHJpYWlkLmNoIiwiYXVkIjoiaHR0cHM6Ly9oZWFsdGhzZXJ2aWNlLnByaWFpZC5jaCIsImV4cCI6MTYwNjU2ODI4MSwibmJmIjoxNjA2NTYxMDgxfQ.QPZhWfBLk0ut9sVMe9zaOsIcSCdJhp3xGqqRB_sN8T8"
 
 # from authlib.integrations.requests_client import OAuth2dbsession
@@ -354,6 +371,17 @@ def patientHealthRecord():
     query=dbsession.query(healthRecord).filter(healthRecord.did==session['doctor'],healthRecord.uid==uid,healthRecord.consultationstatus=='seen').all()
 
     return render_template("patientHealthRecord.html",query=query)
+
+#logout
+@app.route("/users/logout")
+def userLogout():
+    session.pop("users",None)
+    return redirect(url_for("home"))
+
+@app.route("/doctor/logout")
+def doctorLogout():
+    session.pop("doctor",None)
+    return redirect(url_for("home"))
 
 
 if __name__ == "__main__":

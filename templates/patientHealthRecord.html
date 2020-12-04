@@ -4,23 +4,23 @@
     <table class="table">
         <thead>
         <tr>
-            <th scope="col">HealthID</th>
-            <th scope="col">PatientID</th>
-            <th scope="col">symptoms</th>
-            <th scope="col">diseases</th>
-            <th scope="col">prescription</th>
-            <th scope="col"></th>
+            <th scope="col">ReportID</th>
+            <th scope="col">Symptoms</th>
+            <th scope="col">Disease</th>
+            <th scope="col">Prescription</th>
+            <th scope="col">ConsultationDate</th>
+            <th scope="col">ConsultedDate</th>
         </tr>
         </thead>
         <tbody>
         {% for eachRow in query %}
         <tr>
             <td>{{eachRow.hid}}</td>
-            <td>{{eachRow.uid}}</td>
             <td>{{eachRow.symptoms}}</td>
             <td>{{eachRow.diseases}}</td>
             <td>{{eachRow.prescription}}</td>
-            <td><a href="#">delete</a></td>
+            <td>{{eachRow.consultationdate}}</td>
+            <td>{{eachRow.consultateddate}}</td>
         </tr>
         {% endfor %}
     </tbody>
