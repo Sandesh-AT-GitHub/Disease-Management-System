@@ -8,20 +8,19 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{{url_for('doctor')}}">doctorHome</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <a class="navbar-brand active" href="{{url_for('doctor')}}">HOME</a>
+  
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="{{url_for('consultationRequestList')}}">consultationRequestList </a>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('consultationRequestList')}}">Consultation Requests </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{url_for('consultationReplyList')}}">consultationRepliedList</a>
+              <a class="nav-link" href="{{url_for('consultationReplyList')}}">Consulted Patients</a>
             </li>
           </ul>
         </div>
+        <a class="nav-link" href="{{url_for('doctorLogout')}}" style="float: left;">LOGOUT</a>
       </nav>
     {% block content %}
 

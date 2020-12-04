@@ -1,6 +1,6 @@
 {% extends "doctorBase.html" %}
 {% block content %}
-{% for eachRow in query %}
+<!-- {% for eachRow in query %}
    <div>
         <h4>uid:{{eachRow.uid}}</h4>
         <p>consultationdate:{{eachRow.consultationdate}}</p>
@@ -11,5 +11,33 @@
         <p>status:{{eachRow.consultationstatus}}</p>
    </div>
    <hr>
-{% endfor %}
+{% endfor %} -->
+
+<table class="table">
+   <thead>
+   <tr>
+       <th scope="col">ReportID</th>
+       <th scope="col">PatientID</th>
+       <th scope="col">Symptoms</th>
+       <th scope="col">Disease</th>
+       <th scope="col">Applied on</th>
+       <th scope="col">Replied on</th>
+       <th scope="col">Prescription</th>
+   </tr>
+   </thead>
+   <tbody>
+   {% for eachRow in query %}
+   <tr>
+       <td>{{eachRow.hid}}</td>
+       <td>{{eachRow.uid}}</td>
+       <td>{{eachRow.symptoms}}</td>
+       <td>{{eachRow.diseases}}</td>
+       <td>{{eachRow.consultationdate}}</td>
+       <td>{{eachRow.consultateddate}}</td>
+       <td>{{eachRow.prescription}}</td>
+   </tr>
+   {% endfor %}
+</tbody>
+</table>
 {% endblock %}
+

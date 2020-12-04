@@ -1,14 +1,38 @@
 {% extends "doctorBase.html" %}
 {% block title %}DMS|ConsultationRequestList{% endblock %}
 {% block content %}
-{% for eachRow in query %}
+<!-- {% for eachRow in query %}
     <div>
          <p>{{eachRow.hid}}</p>
          <p>{{eachRow.diseases}}</p>
          <p>{{eachRow.symptoms}}</p>
          <p>{{eachRow.consultationdate}}</p>
-         <a href="{{url_for('writePrescription',hid=eachRow.hid)}}">reply with prescription</a>
+         
     </div>
         <hr>
-{% endfor %}
+{% endfor %} -->
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ReportID</th>
+        <th scope="col">Symptoms</th>
+        <th scope="col">Disease</th>
+        <th scope="col">Applied on</th>
+        <th scope="col">#</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for eachRow in query %}
+    <tr>
+        <td>{{eachRow.hid}}</td>
+        <td>{{eachRow.symptoms}}</td>
+        <td>{{eachRow.diseases}}</td>
+        <td>{{eachRow.consultationdate}}</td>
+        <td><a href="{{url_for('writePrescription',hid=eachRow.hid)}}">Write Prescription</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
 {% endblock %}
+

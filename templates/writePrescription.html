@@ -1,12 +1,38 @@
 
+{% extends "doctorBase.html" %}
 {% block title %} {% endblock %}
 {% block content %}
-    <a href="{{url_for('patientHealthRecord',uid=query.uid)}}">view details</a>
+<div class="container jumbotron" style="margin-top:100px;">
+    <h3 style="text-align: center;">Prescription</h3>
+    <br>
+    <a href="{{url_for('patientHealthRecord',uid=query.uid)}}">View previous health report on patients</a>
+
     <form action="/doctor/consultationReplyList" method="POST"> 
-        hid<input type="number" name="hid" value="{{hid}}" readonly required>
-        from<input type="text" value="{{doctor}}" required>
-        to<input type="text" value="{{user}}" required>
-        prescription<input  type="text" name="prescription" required>
-        <input type="submit">
+        <br>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="hid">Report ID </label>
+                <input type="number"  id="hid" value="{{hid}}" class="form-control" readonly required>
+              </div>
+            <div class="form-group col-md-4">
+              <label for="user">Patient Name</label>
+              <input type="text"  id="user" value="{{user}}" class="form-control" readonly required>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="doctor">Doctor Name</label>
+              <input type="text" id="doctor" value="{{doctor}}" class="form-control"  readonly required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="prescription">Prescription</label>
+            <input type="text" name="prescription" id="prescription" class="form-control" placeholder="write prescription for patient"  required>
+          </div>
+        
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">SUBMIT</button>
+          </div>
     </form>
+</div>   
+   
+       
 {% endblock %}

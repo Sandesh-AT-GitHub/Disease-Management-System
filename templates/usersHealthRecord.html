@@ -26,7 +26,7 @@
             <td>{{eachRow.consultateddate}}</td>
             <td>{{eachRow.prescription}}</td>
             <td>{{eachRow.consultationstatus}}</td>
-            <td><a href="#">delete</a></td>
+            <td><a href="{{url_for('deleteReport',hid=eachRow.hid)}}">delete</a></td>
         </tr>
         {% endfor %}
     </tbody>

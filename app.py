@@ -31,7 +31,7 @@ import json
     
 # result = make_digest('message', 'private-key')
 # print(result)
-token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNhbmRlc2hnb3dkYTEzNUBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL3NpZCI6IjgxNDMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIyMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiOTk5OTk5OTk5IiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiUHJlbWl1bSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjAtMTEtMTYiLCJpc3MiOiJodHRwczovL3NhbmRib3gtYXV0aHNlcnZpY2UucHJpYWlkLmNoIiwiYXVkIjoiaHR0cHM6Ly9oZWFsdGhzZXJ2aWNlLnByaWFpZC5jaCIsImV4cCI6MTYwNjU2ODI4MSwibmJmIjoxNjA2NTYxMDgxfQ.QPZhWfBLk0ut9sVMe9zaOsIcSCdJhp3xGqqRB_sN8T8"
+token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNhbmRlc2hnb3dkYTEzNUBnbWFpbC5jb20iLCJyb2xlIjoiVXNlciIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL3NpZCI6IjgxNDMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3ZlcnNpb24iOiIyMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL2xpbWl0IjoiOTk5OTk5OTk5IiwiaHR0cDovL2V4YW1wbGUub3JnL2NsYWltcy9tZW1iZXJzaGlwIjoiUHJlbWl1bSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjAtMTEtMTYiLCJpc3MiOiJodHRwczovL3NhbmRib3gtYXV0aHNlcnZpY2UucHJpYWlkLmNoIiwiYXVkIjoiaHR0cHM6Ly9oZWFsdGhzZXJ2aWNlLnByaWFpZC5jaCIsImV4cCI6MTYwNzA3NjAzNCwibmJmIjoxNjA3MDY4ODM0fQ.BBuYsPUz_jvNNS9D8G3MWB_ndIc6Ddr7kfFqja0U8Jw"
 
 # from authlib.integrations.requests_client import OAuth2dbsession
 # client = OAuth2dbsession(client_id, client_secret, scope=scope)
@@ -120,7 +120,6 @@ class healthRecord(Base):
     prescription=Column(String(100),nullable=True)
     consultationstatus=Column(String(10))
 
-    # ForeignKey("user.uid"),
 
     def __init__(self,uid,did,symptoms,diseases,consultationdate,consultateddate,prescription,consultationstatus):
         self.uid=uid
@@ -301,7 +300,16 @@ def usersHealthRecord():
     
     query=dbsession.query(healthRecord).filter(healthRecord.uid==session['users'])
     return render_template("usersHealthRecord.html",query=query)
-    
+
+@app.route('/users/deleteReport')
+def deleteReport():
+    hid=request.args.get('hid')
+    print(hid)
+    query=dbsession.query(healthRecord).filter(healthRecord.hid==hid).first()
+    dbsession.delete(query)
+    dbsession.commit()
+    return redirect(url_for('usersHealthRecord'))
+
 #doctors module
 
 @app.route("/doctor",methods=["post","get"])

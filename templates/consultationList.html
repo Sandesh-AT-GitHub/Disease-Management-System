@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-{% for eachDoctor in doctorList %}
+<!-- {% for eachDoctor in doctorList %}
 <div>
      <p>name:{{eachDoctor.name}}</p>
      <p>email:{{eachDoctor.email}}</p>
@@ -8,8 +8,37 @@
      <p>experience:{{eachDoctor.exp}}</p>
      <p>profession:{{eachDoctor.currentstatus}}</p>
      <p>specialisation:{{eachDoctor.specialisation}}</p>
-     <a href="{{url_for('consult',doctor=eachDoctor.name)}}">consult</a>
+     
 </div>   
 <hr>
-{%endfor%}
+{%endfor%} -->
+
+<table class="table">
+     <thead>
+     <tr>
+         <th scope="col">Doctor Name</th>
+         <th scope="col">Doctor Email</th>
+         <th scope="col">Degree</th>
+         <th scope="col">Experience</th>
+         <th scope="col">Current Profession</th>
+         <th scope="col">Specialization</th>
+         <th scope="col">#</th>
+      
+     </tr>
+     </thead>
+     <tbody>
+     {% for eachDoctor in doctorList %}
+     <tr>
+         <td>{{eachDoctor.name}}</td>
+         <td>{{eachDoctor.email}}</td>
+         <td>{{eachDoctor.degree}}</td>
+         <td>{{eachDoctor.exp}}</td>
+         <td>{{eachDoctor.currentstatus}}</td>
+         <td>{{eachDoctor.specialisation}}</td>
+         <td><a href="{{url_for('consult',doctor=eachDoctor.name)}}">consult</a></td>
+         
+     </tr>
+     {% endfor %}
+ </tbody>
+ </table>
 {% endblock %}

@@ -1,12 +1,34 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="container jumbotron" style="margin-top:100px;">
+    <h3 style="text-align: center;">CONSULTATION FORM</h3><br>
+    <form action='/users/usersHealthRecord' method='POST'>
+        
+        <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="user">Patient Name</label>
+              <input type="text" name="from" id="user" value="{{user}}" class="form-control" readonly required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="doctor">Doctor Name</label>
+              <input type="text" name="to" id="doctor" value="{{doctor}}" class="form-control"  readonly required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="symptoms">Symptoms</label>
+            <input type="text" name="symptom" id="symptoms" class="form-control" placeholder="enter symptoms"  required>
+          </div>
+          <div class="form-group">
+            <label for="disease">Disease</label>
+            <input type="text" name='disease' id="disease" class="form-control" placeholder="enter diseases" required>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Apply</button>
+          </div>
+    </form>
+</div>
 
-<form action='/users/usersHealthRecord' method='POST'>
-    <input type="text" name="from" value="{{user}}" readonly required>
-    <input type="text" name="to" value="{{doctor}}" readonly required>
-    <input type="text" name="symptom" required>
-    <input type="text" name='disease' required>
-    <input type="submit">
-</form>
 
 {% endblock %}
+
+    
